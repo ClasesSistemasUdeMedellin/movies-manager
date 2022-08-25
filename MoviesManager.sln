@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesManager", "MoviesManager\MoviesManager.csproj", "{15A8350B-FF4B-40FB-BEF0-7EF666073DE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesManagerTests", "MoviesManagerTests\MoviesManagerTests.csproj", "{03FC06FC-5B2A-4197-BCB2-F85255898E36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{15A8350B-FF4B-40FB-BEF0-7EF666073DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15A8350B-FF4B-40FB-BEF0-7EF666073DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15A8350B-FF4B-40FB-BEF0-7EF666073DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03FC06FC-5B2A-4197-BCB2-F85255898E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03FC06FC-5B2A-4197-BCB2-F85255898E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03FC06FC-5B2A-4197-BCB2-F85255898E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03FC06FC-5B2A-4197-BCB2-F85255898E36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

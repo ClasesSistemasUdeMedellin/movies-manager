@@ -41,5 +41,20 @@ namespace MoviesManager.Model.Tests
             // Act and assert
             Assert.ThrowsException<Exception>(() => user.Authenticate());
         }
+
+        [TestMethod]
+        public void Authenticate_User_Already_Authenticated_Throws()
+        {
+            // Arrange
+            string username = "cursoapoo";
+            string password = "apoo20222";
+            string name = "Chucho";
+            string email = "jehincapie@udemedellin.edu.co";
+            User user = new User(username, name, email, password);
+            user.Authenticate();
+
+            // Act and Assert
+            Assert.ThrowsException<Exception>(() => user.Authenticate());
+        }
     }
 }

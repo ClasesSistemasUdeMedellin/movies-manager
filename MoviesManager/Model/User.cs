@@ -17,6 +17,9 @@ namespace MoviesManager.Model
 
         private bool _validCredentials = false;
 
+        public List<User> Users { get; set; } // I'm not quite sure if this relationship goes here
+        public Library Library { get; set; }
+
         public bool IsAuthenticated { 
             get
             {
@@ -24,12 +27,14 @@ namespace MoviesManager.Model
             }
         }
 
-        public User(string username, string name, string email, string password)
+        public User(string username, string name, string email, string password, Library library)
         {
             Username = username;
             Name = name;
             Email = email;
             Password = password;
+            Users = new List<User>();
+            Library = library;
         }
 
         public void Authenticate()

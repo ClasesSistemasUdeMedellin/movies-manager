@@ -1,12 +1,16 @@
 ﻿using System;
 
-public class MovieManager
+namespace MoviesManager.Model
 {
-	public List<Movie> Movies { get; set; }
-	//public List<User> Users { get; set;}
-
-	public MovieManager()
+	public class MovieManager
 	{
-		Movies = new List<Movie>();
+		public List<Movie> Movies { get; set; }
+		public List<User> Users { get; set;}
+
+		public MovieManager()
+		{
+			Movies = new List<Movie>();
+            Users = new List<User>();
+        }
 	}
 }

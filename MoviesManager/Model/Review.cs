@@ -1,12 +1,15 @@
 ﻿using System;
 
-public class Review
+namespace MoviesManager.Model
 {
-	public double Score { get; set; }
-	public string Comment { get; set; }
-	public Review(double score, string comment)
+	public class Review
 	{
-		Score = score;
-		Comment = comment;
+		public double Score { get; set; }
+		public string Comment { get; set; }
+		public Review(double score, string comment)
+		{
+			Score = score;
+			Comment = comment;
+		}
 	}
 }

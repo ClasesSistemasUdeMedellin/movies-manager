@@ -33,6 +33,7 @@ namespace MoviesManager.Model
             Email = email;
             Password = password;
             Library = new Library();
+            // This is a test comment
         }
 
         public void Authenticate()

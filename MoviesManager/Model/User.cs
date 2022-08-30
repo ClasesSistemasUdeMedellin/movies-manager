@@ -27,14 +27,14 @@ namespace MoviesManager.Model
             }
         }
 
-        public User(string username, string name, string email, string password, Library library)
+        public User(string username, string name, string email, string password)
         {
             Username = username;
             Name = name;
             Email = email;
             Password = password;
             Users = new List<User>();
-            Library = library;
+            Library = new library();
         }
 
         public void Authenticate()

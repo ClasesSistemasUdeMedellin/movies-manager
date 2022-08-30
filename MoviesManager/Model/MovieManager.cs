@@ -3,6 +3,7 @@
 public class MovieManager
 {
 	public List<Movie> Movies { get; set; }
+	//public List<User> Users { get; set;}
 
 	public MovieManager()
 	{

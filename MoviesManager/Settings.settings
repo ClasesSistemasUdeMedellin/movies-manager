@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MoviesManager" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\jahlo\Source\Repos\ClasesSistemasUdeMedellin\movies-manager\MoviesManager\DatabaseMovies.mdf;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="DaoFactoryClass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MoviesManager.DataAccess.SqlDaoFactory</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

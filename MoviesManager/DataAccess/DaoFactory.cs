@@ -9,7 +9,7 @@ namespace MoviesManager.DataAccess
     public abstract class DaoFactory
     {
         private static DaoFactory? _factory;
-        public static DaoFactory Factory
+        public static DaoFactory? Factory
         {
             get
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelUser = new System.Windows.Forms.Label();
             this.textBoxUser = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
@@ -38,9 +39,11 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonRegister = new System.Windows.Forms.Button();
+            this.errorProviderLoginForm = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLoginForm)).BeginInit();
             this.SuspendLayout();
             // 
             // labelUser
@@ -60,6 +63,7 @@
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(184, 23);
             this.textBoxUser.TabIndex = 1;
+            this.textBoxUser.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxUser_Validating);
             // 
             // labelPassword
             // 
@@ -79,6 +83,7 @@
             this.textBoxPassword.Size = new System.Drawing.Size(184, 23);
             this.textBoxPassword.TabIndex = 3;
             this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
             // 
             // pBoxLogo
             // 
@@ -123,6 +128,7 @@
             this.buttonLogin.TabIndex = 7;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // panel2
             // 
@@ -149,8 +155,13 @@
             this.buttonRegister.UseVisualStyleBackColor = true;
             this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
+            // errorProviderLoginForm
+            // 
+            this.errorProviderLoginForm.ContainerControl = this;
+            // 
             // LoginForm
             // 
+            this.AcceptButton = this.buttonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 431);
@@ -166,6 +177,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLoginForm)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -182,5 +194,6 @@
         private Button buttonLogin;
         private Panel panel2;
         private Button buttonRegister;
+        private ErrorProvider errorProviderLoginForm;
     }
 }

@@ -16,8 +16,10 @@ namespace MoviesManager.DataAccess
         {
             get 
             {
-                if(_connection == null )
+                if(_connection == null)
                     _connection = new SqlConnection(Settings.Default.ConnectionString);
+                else if(_connection.State == System.Data.ConnectionState.Closed)
+                    _connection.ConnectionString = Settings.Default.ConnectionString;
 
                 return _connection; 
             }

@@ -69,7 +69,7 @@ namespace MoviesManager.Forms
             if (string.IsNullOrEmpty(textBoxPassword.Text))
             {
                 e.Cancel = true;
-                textBoxName.Focus();
+                textBoxPassword.Focus();
                 errorProviderRegisterForm.SetError(textBoxPassword, "Password should not be empty");
             }
         }
@@ -79,7 +79,7 @@ namespace MoviesManager.Forms
             if (textBoxPassword.Text != textBoxConfirmPassword.Text)
             {
                 e.Cancel = true;
-                textBoxName.Focus();
+                textBoxConfirmPassword.Focus();
                 errorProviderRegisterForm.SetError(textBoxConfirmPassword, "Password confirmation should be the same as password");
             }
         }

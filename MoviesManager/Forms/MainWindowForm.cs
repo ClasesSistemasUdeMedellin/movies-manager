@@ -27,5 +27,10 @@ namespace MoviesManager.Forms
             loginForm.StartPosition = FormStartPosition.CenterScreen;
             loginForm.ShowDialog();
         }
+
+        public void InitializeUI()
+        {
+            this.Text =  $"Movie Manager: movies library for {MovieManager.AuthenticatedUser.UserDto.Name}";
+        }
     }
 }

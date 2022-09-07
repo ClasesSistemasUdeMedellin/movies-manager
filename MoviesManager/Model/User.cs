@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MoviesManager.DataAccess;
+using MoviesManager.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +10,8 @@ namespace MoviesManager.Model
 {
     public class User
     {
-        public string Username { get; }
-        public string Name { get; set; }
-
-        public string Email { get; set; }
-
-        public string Password { get; }
-
+        private UserDto _userDto;
+        
         private bool _validCredentials = false;
 
         public Library Library { get; set; }
@@ -26,29 +23,49 @@ namespace MoviesManager.Model
             }
         }
 
-        public User(string username, string name, string email, string password)
+        public UserDto UserDto
         {
-            Username = username;
-            Name = name;
-            Email = email;
-            Password = password;
-            Library = new Library();
-            // This is a test comment
+            get
+            {
+                return _userDto;
+            }
         }
 
-        public void Authenticate()
+        public User(string username, string password, string name, string? email=null)
         {
-            // TODO: Validate with database data
+            _userDto = new UserDto();
+            _userDto.UserGuid = Guid.NewGuid().ToString();
+            _userDto.Username = username;
+            _userDto.Name = name;
+            _userDto.Email = email;
+            _userDto.Password = Encryptor.SHA1Hash(password + _userDto.UserGuid);
+            Library = new Library();
+        }
+
+        public User(UserDto dto)
+        {
+            _userDto = dto;
+            Library = new Library();
+        }
+
+        public void Authenticate(string password)
+        {
             if (_validCredentials)
             {
                 throw new Exception("El usuario ya está autenticado");
             }
             else
             {
-                if (Username == Resources.User && Password == Resources.Password)
+                string hashPassword = Encryptor.SHA1Hash(password + _userDto.UserGuid);
+                StringComparer comparer = StringComparer.Ordinal;
+                if(comparer.Compare(hashPassword, _userDto.Password) == 0)
+                {
                     _validCredentials = true;
+                }
                 else
-                    throw new Exception("Nombre de usuario o contraseña incorrectos");
+                {
+                    throw new IncorrectPasswordException("Wrong password");
+                }
             }
         }
     }

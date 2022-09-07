@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoviesManager.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,19 @@ namespace MoviesManager.Forms
 {
     public partial class MainWindowForm : Form
     {
-        public MainWindowForm()
+        public MovieManager MovieManager { get; set; }
+
+        public MainWindowForm(MovieManager movieManager)
         {
+            MovieManager = movieManager;
             InitializeComponent();
         }
 
         private void MainWindowForm_Load(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
+            LoginForm loginForm = new LoginForm(this);
             loginForm.StartPosition = FormStartPosition.CenterScreen;
             loginForm.ShowDialog();
-
-            AddMovieForm addMovieForm = new AddMovieForm();
-            addMovieForm.ShowDialog();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿CREATE TABLE [dbo].[Users] (
+﻿DROP TABLE IF EXISTS [dbo].[Users]
+CREATE TABLE [dbo].[Users] (
     [Name]     NVARCHAR (MAX) NOT NULL,
     [Email]    NVARCHAR (MAX) NULL,
     [Username] NVARCHAR (50)  NOT NULL,
@@ -7,18 +8,21 @@
     PRIMARY KEY CLUSTERED ([Username] ASC)
 );
 
+DROP TABLE IF EXISTS [dbo].[Categories]
 CREATE TABLE [dbo].[Categories] (
     [Id]   INT   NOT NULL,
     [Name] NTEXT NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
+DROP TABLE IF EXISTS [dbo].[MovieStatus]
 CREATE TABLE [dbo].[MovieStatus]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
     [Name] NTEXT NOT NULL
 );
 
+DROP TABLE IF EXISTS [dbo].[Movies]
 CREATE TABLE [dbo].[Movies] (
     [Id]          INT   NOT NULL,
     [Title]       NTEXT NOT NULL,
@@ -28,6 +32,7 @@ CREATE TABLE [dbo].[Movies] (
     CONSTRAINT [FK_Movies_To_MovieStatus] FOREIGN KEY ([Status]) REFERENCES [dbo].[MovieStatus] ([Id])
 );
 
+DROP TABLE IF EXISTS [dbo].[Reviews]
 CREATE TABLE [dbo].[Reviews] (
     [Id]      INT        NOT NULL,
     [Score]   FLOAT (53) NOT NULL,
@@ -37,6 +42,7 @@ CREATE TABLE [dbo].[Reviews] (
     CONSTRAINT [FK_Reviews_To_Movie] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movies] ([Id])
 );
 
+DROP TABLE IF EXISTS [dbo].[UserMovies]
 CREATE TABLE [dbo].[UserMovies] (
     [Username] NVARCHAR (50) NOT NULL,
     [MovieId]  INT           NOT NULL,
@@ -45,6 +51,7 @@ CREATE TABLE [dbo].[UserMovies] (
     CONSTRAINT [FK_UserMovies_To_Movies] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movies] ([Id])
 );
 
+DROP TABLE IF EXISTS [dbo].[MoviesByCategory]
 CREATE TABLE [dbo].[MoviesByCategory] (
     [MovieId]    INT NOT NULL,
     [CategoryId] INT NOT NULL,

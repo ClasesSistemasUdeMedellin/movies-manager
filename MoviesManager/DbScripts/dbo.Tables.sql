@@ -24,7 +24,7 @@ CREATE TABLE [dbo].[MovieStatus]
 
 DROP TABLE IF EXISTS [dbo].[Movies]
 CREATE TABLE [dbo].[Movies] (
-    [Id]          INT   NOT NULL,
+    [Id]          INT IDENTITY   NOT NULL,
     [Title]       NTEXT NOT NULL,
     [Description] NTEXT NULL,
     [Status]      INT   NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE [dbo].[Movies] (
 
 DROP TABLE IF EXISTS [dbo].[Reviews]
 CREATE TABLE [dbo].[Reviews] (
-    [Id]      INT        NOT NULL,
+    [Id]      INT IDENTITY  NOT NULL,
     [Score]   FLOAT (53) NOT NULL,
     [Comment] NTEXT      NULL,
     [MovieId] INT        NOT NULL,

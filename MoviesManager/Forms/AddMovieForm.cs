@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoviesManager.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,21 @@ namespace MoviesManager.Forms
 {
     public partial class AddMovieForm : Form
     {
-        public AddMovieForm()
+        private MainWindowForm _mainWindow;
+        public AddMovieForm(MainWindowForm mainWindow)
         {
+            _mainWindow = mainWindow;
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            listBoxCategories.DataSource = Movie.Categories;
+            listBoxCategories.DisplayMember = "Name";
+
+            comboBoxStatus.DataSource = Movie.Statuses;
+            comboBoxStatus.DisplayMember = "Name";
         }
     }
 }

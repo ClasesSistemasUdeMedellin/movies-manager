@@ -1,4 +1,5 @@
 ﻿using MoviesManager.DataAccess;
+using MoviesManager.DataAccess.Dto;
 using MoviesManager.Util;
 using System;
 using System.Collections.Generic;

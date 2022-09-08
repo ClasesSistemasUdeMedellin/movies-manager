@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoviesManager.DataAccess
+namespace MoviesManager.DataAccess.Dto
 {
     public class UserDto
     {

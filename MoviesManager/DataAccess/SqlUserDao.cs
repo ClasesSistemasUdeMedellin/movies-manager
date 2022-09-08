@@ -1,4 +1,5 @@
-﻿using MoviesManager.Model;
+﻿using MoviesManager.DataAccess.Dto;
+using MoviesManager.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

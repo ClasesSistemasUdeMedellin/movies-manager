@@ -25,9 +25,14 @@ namespace MoviesManager.DataAccess
             }
         }
 
-        public override SqlUserDao UserDao
+        public override IUserDao UserDao
         {
             get { return new SqlUserDao(Connection); }
+        }
+
+        public override IMovieDao MovieDao
+        {
+            get { return new SqlMovieDao(Connection); }
         }
 
         public SqlDaoFactory()

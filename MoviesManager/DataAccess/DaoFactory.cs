@@ -24,6 +24,7 @@ namespace MoviesManager.DataAccess
         }
 
         public abstract IUserDao UserDao { get; }
+        public abstract IMovieDao MovieDao { get; }
     }
 
    

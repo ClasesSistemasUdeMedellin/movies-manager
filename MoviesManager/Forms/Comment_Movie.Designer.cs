@@ -32,7 +32,8 @@
             this.label1Comment = new System.Windows.Forms.Label();
             this.richTextBox1Comment = new System.Windows.Forms.RichTextBox();
             this.button1Send = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1Comment
@@ -53,20 +54,21 @@
             this.button1Send.Name = "button1Send";
             this.button1Send.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBox1
+            // panel1
             // 
-            resources.ApplyResources(this.maskedTextBox1, "maskedTextBox1");
-            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.panel1.Controls.Add(this.button1Send);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
             // 
             // Comment_Movie
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.button1Send);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.richTextBox1Comment);
             this.Controls.Add(this.label1Comment);
             this.Name = "Comment_Movie";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,6 +79,6 @@
         private Label label1Comment;
         private RichTextBox richTextBox1Comment;
         private Button button1Send;
-        private MaskedTextBox maskedTextBox1;
+        private Panel panel1;
     }
 }

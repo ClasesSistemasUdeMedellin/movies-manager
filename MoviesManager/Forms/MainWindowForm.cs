@@ -22,6 +22,9 @@ namespace MoviesManager.Forms
             LoginForm loginForm = new LoginForm();
             loginForm.StartPosition = FormStartPosition.CenterScreen;
             loginForm.ShowDialog();
+
+            Comment_Movie comment_Movie = new Comment_Movie();
+            comment_Movie.ShowDialog();
         }
     }
 }

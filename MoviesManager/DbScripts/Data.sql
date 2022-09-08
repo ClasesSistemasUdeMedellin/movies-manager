@@ -1,5 +1,6 @@
 ﻿INSERT INTO MovieStatus VALUES(1, 'Coming soon');
 INSERT INTO MovieStatus VALUES(2, 'On billboard');
+INSERT INTO MovieStatus VALUES(3, 'Off billboard');
 
 INSERT INTO Categories VALUES(1, 'Action');
 INSERT INTO Categories VALUES(2, 'Comedy');

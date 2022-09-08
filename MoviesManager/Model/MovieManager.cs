@@ -68,7 +68,7 @@ namespace MoviesManager.Model
             }
 			catch(SqlException ex)
             {
-				throw new Exception("There was a problem trying to inser the movie", ex);
+				throw new Exception("There was a problem trying to insert the movie", ex);
             }
         }
 	}

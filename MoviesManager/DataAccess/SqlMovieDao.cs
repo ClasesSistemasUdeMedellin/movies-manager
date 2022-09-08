@@ -87,8 +87,11 @@ namespace MoviesManager.DataAccess
                 _connection.Open();
                 using(SqlCommand cmd = _connection.CreateCommand())
                 {
-                    string values = $"'{movie.Title}', '{movie.Description}', {movie.Status.Id}";
+                    string values = $"@TITLE, @DESCRIPTION, @STATUS";
                     cmd.CommandText = $"INSERT INTO [Movies](Title, Description, Status) OUTPUT INSERTED.ID VALUES({values})";
+                    cmd.Parameters.AddWithValue("@TITLE", movie.Title);
+                    cmd.Parameters.AddWithValue("@DESCRIPTION", movie.Description);
+                    cmd.Parameters.AddWithValue("@STATUS", movie.Status.Id);
                     int movideId = Convert.ToInt32(cmd.ExecuteScalar());
 
                     foreach(CategoryDto category in movie.Categories)

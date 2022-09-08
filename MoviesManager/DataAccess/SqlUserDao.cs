@@ -25,7 +25,8 @@ namespace MoviesManager.DataAccess
                 _connection.Open();
                 using (SqlCommand cmd = _connection.CreateCommand())
                 {
-                    cmd.CommandText = $"SELECT Username, Password, Name, Email, UserGuid FROM [Users] WHERE Username='{username}'";
+                    cmd.CommandText = $"SELECT Username, Password, Name, Email, UserGuid FROM [Users] WHERE Username = @USERNAME";
+                    cmd.Parameters.AddWithValue("@USERNAME", username);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -54,8 +55,13 @@ namespace MoviesManager.DataAccess
                 _connection.Open();
                 using (SqlCommand cmd = _connection.CreateCommand())
                 {
-                    string values = $"'{user.Name}', '{user.Email}', '{user.Username}', '{user.Password}', '{user.UserGuid}'";
+                    string values = "@NAME, @EMAIL, @USERNAME', @PASSWORD, @USERGUID";
                     cmd.CommandText = $"INSERT INTO [Users](Name, Email, Username, Password, UserGuid) VALUES ({values})";
+                    cmd.Parameters.AddWithValue("@NAME", user.Name);
+                    cmd.Parameters.AddWithValue("@EMAIL", user.Email);
+                    cmd.Parameters.AddWithValue("@USERNAME", user.Username);
+                    cmd.Parameters.AddWithValue("@PASSWORD", user.Password);
+                    cmd.Parameters.AddWithValue("@USERGUID", user.UserGuid);
                     cmd.ExecuteNonQuery();
                 }
             }

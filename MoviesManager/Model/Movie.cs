@@ -14,13 +14,14 @@ namespace MoviesManager.Model
 			get { return _movieDto; }
         }
 
-		public Movie(string title, List<CategoryDto> categories, string description, MovieStatusDto status)
+		public Movie(string title, List<CategoryDto> categories, string description, MovieStatusDto status, string Username)
 		{
 			_movieDto = new MovieDto();
 			_movieDto.Title = title;
 			_movieDto.Categories = categories;
 			_movieDto.Description = description;
 			_movieDto.Status = status;
+			_movieDto.Username = Username;
 		}
 
 		public Movie(MovieDto dto)

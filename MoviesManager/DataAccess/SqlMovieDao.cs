@@ -80,7 +80,7 @@ namespace MoviesManager.DataAccess
             throw new NotImplementedException();
         }
 
-        public void InsertMovie(MovieDto movie)
+        public int InsertMovie(MovieDto movie)
         {
             using(_connection)
             {
@@ -96,6 +96,11 @@ namespace MoviesManager.DataAccess
                         cmd.CommandText = $"INSERT INTO [MoviesByCategory](MovieId, CategoryId) VALUES({movideId}, {category.Id})";
                         cmd.ExecuteNonQuery();
                     }
+
+                    cmd.CommandText = $"INSERT INTO [UserMovies](Username, MovieId) VALUES ('{movie.Username}', {movideId})";
+                    cmd.ExecuteNonQuery();
+
+                    return movideId;
                 }
             }
         }

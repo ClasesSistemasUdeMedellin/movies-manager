@@ -55,5 +55,21 @@ namespace MoviesManager.Model
 				throw new InvalidCredentialsException("Invalid credentials");
             }
         }
+
+		public void AddMovie(string title, string description, List<CategoryDto> categories, MovieStatusDto status)
+        {
+			Movie movie = new Movie(title, categories, description, status, AuthenticatedUser.UserDto.Username);
+			IMovieDao movieDao = DaoFactory.Factory.MovieDao;
+			try
+            {
+				int id = movieDao.InsertMovie(movie.MovieDto);
+				movie.MovieDto.Id = id;
+				Movies.Add(movie);
+            }
+			catch(SqlException ex)
+            {
+				throw new Exception("There was a problem trying to inser the movie", ex);
+            }
+        }
 	}
 }

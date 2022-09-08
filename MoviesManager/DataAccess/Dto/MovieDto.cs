@@ -12,7 +12,8 @@ namespace MoviesManager.DataAccess.Dto
         public string Title { get; set; }
         public string Description { get; set; }
         public MovieStatusDto Status { get; set; }
-
         public List<CategoryDto> Categories { get; set; }
+
+        public string Username { get; set; }
     }
 }

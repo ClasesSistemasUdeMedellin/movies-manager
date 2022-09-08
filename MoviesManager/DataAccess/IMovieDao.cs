@@ -9,7 +9,7 @@ namespace MoviesManager.DataAccess
 {
     public interface IMovieDao
     {
-        public void InsertMovie(MovieDto movie);
+        public int InsertMovie(MovieDto movie);
         public MovieDto GetMovieById(int id);
 
         public List<MovieDto> FilterByTitle(string title);

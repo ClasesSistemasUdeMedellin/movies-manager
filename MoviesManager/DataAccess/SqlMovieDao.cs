@@ -92,18 +92,24 @@ namespace MoviesManager.DataAccess
                     cmd.Parameters.AddWithValue("@TITLE", movie.Title);
                     cmd.Parameters.AddWithValue("@DESCRIPTION", movie.Description);
                     cmd.Parameters.AddWithValue("@STATUS", movie.Status.Id);
-                    int movideId = Convert.ToInt32(cmd.ExecuteScalar());
+                    int movieId = Convert.ToInt32(cmd.ExecuteScalar());
 
                     foreach(CategoryDto category in movie.Categories)
                     {
-                        cmd.CommandText = $"INSERT INTO [MoviesByCategory](MovieId, CategoryId) VALUES({movideId}, {category.Id})";
+                        cmd.CommandText = $"INSERT INTO [MoviesByCategory](MovieId, CategoryId) VALUES(@MOVIEID, @CATEGORYID)";
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@MOVIEID", movieId);
+                        cmd.Parameters.AddWithValue("@CATEGORYID", category.Id);
                         cmd.ExecuteNonQuery();
                     }
 
-                    cmd.CommandText = $"INSERT INTO [UserMovies](Username, MovieId) VALUES ('{movie.Username}', {movideId})";
+                    cmd.CommandText = $"INSERT INTO [UserMovies](Username, MovieId) VALUES (@USERNAME, @MOVIEID)";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@USERNAME", movie.Username);
+                    cmd.Parameters.AddWithValue("@MOVIEID", movieId);
                     cmd.ExecuteNonQuery();
 
-                    return movideId;
+                    return movieId;
                 }
             }
         }

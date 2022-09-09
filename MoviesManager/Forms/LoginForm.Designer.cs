@@ -1,4 +1,4 @@
-﻿namespace MoviesManager
+﻿namespace MoviesManager.Forms
 {
     partial class LoginForm
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelUser = new System.Windows.Forms.Label();
             this.textBoxUser = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
@@ -37,9 +38,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonRegister = new System.Windows.Forms.Button();
+            this.errorProviderLoginForm = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLoginForm)).BeginInit();
             this.SuspendLayout();
             // 
             // labelUser
@@ -48,9 +52,9 @@
             this.labelUser.AutoSize = true;
             this.labelUser.Location = new System.Drawing.Point(55, 12);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(50, 15);
+            this.labelUser.Size = new System.Drawing.Size(63, 15);
             this.labelUser.TabIndex = 0;
-            this.labelUser.Text = "Usuario:";
+            this.labelUser.Text = "Username:";
             // 
             // textBoxUser
             // 
@@ -59,6 +63,7 @@
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(184, 23);
             this.textBoxUser.TabIndex = 1;
+            this.textBoxUser.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxUser_Validating);
             // 
             // labelPassword
             // 
@@ -66,9 +71,9 @@
             this.labelPassword.AutoSize = true;
             this.labelPassword.Location = new System.Drawing.Point(55, 42);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(70, 15);
+            this.labelPassword.Size = new System.Drawing.Size(60, 15);
             this.labelPassword.TabIndex = 2;
-            this.labelPassword.Text = "Contraseña:";
+            this.labelPassword.Text = "Password:";
             // 
             // textBoxPassword
             // 
@@ -78,6 +83,7 @@
             this.textBoxPassword.Size = new System.Drawing.Size(184, 23);
             this.textBoxPassword.TabIndex = 3;
             this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
             // 
             // pBoxLogo
             // 
@@ -116,15 +122,17 @@
             // buttonLogin
             // 
             this.buttonLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonLogin.Location = new System.Drawing.Point(135, 79);
+            this.buttonLogin.Location = new System.Drawing.Point(91, 80);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(103, 23);
+            this.buttonLogin.Size = new System.Drawing.Size(78, 23);
             this.buttonLogin.TabIndex = 7;
-            this.buttonLogin.Text = "Iniciar sesión";
+            this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.buttonRegister);
             this.panel2.Controls.Add(this.labelUser);
             this.panel2.Controls.Add(this.buttonLogin);
             this.panel2.Controls.Add(this.textBoxUser);
@@ -136,8 +144,24 @@
             this.panel2.Size = new System.Drawing.Size(376, 123);
             this.panel2.TabIndex = 8;
             // 
+            // buttonRegister
+            // 
+            this.buttonRegister.Location = new System.Drawing.Point(195, 80);
+            this.buttonRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(82, 23);
+            this.buttonRegister.TabIndex = 8;
+            this.buttonRegister.Text = "Register";
+            this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
+            // 
+            // errorProviderLoginForm
+            // 
+            this.errorProviderLoginForm.ContainerControl = this;
+            // 
             // LoginForm
             // 
+            this.AcceptButton = this.buttonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 431);
@@ -147,12 +171,13 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm";
-            this.Text = "Iniciar sesión";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLoginForm)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,5 +193,7 @@
         private Panel panel1;
         private Button buttonLogin;
         private Panel panel2;
+        private Button buttonRegister;
+        private ErrorProvider errorProviderLoginForm;
     }
 }

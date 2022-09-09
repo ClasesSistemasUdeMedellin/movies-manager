@@ -1,29 +1,50 @@
-﻿using System;
+﻿using MoviesManager.DataAccess;
+using MoviesManager.DataAccess.Dto;
+using System;
 
 namespace MoviesManager.Model
 {
-	public enum MovieStatus
-	{
-		COMING_SOON,
-		ON_BILLBOARD
-	}
 
 	public class Movie
 	{
-		public string Title { get; }
-		public List<string> Categories { get; set; }
-		public string Description { get; set; }
-		public MovieStatus Status { get; set; }
+		private MovieDto _movieDto;
 
-		public List<Review> Reviews { get; set; }
+		public MovieDto MovieDto
+        {
+			get { return _movieDto; }
+        }
 
-		public Movie(string title, List<string> categories, string description, MovieStatus status)
+		public Movie(string title, List<CategoryDto> categories, string description, MovieStatusDto status, string Username)
 		{
-			Title = title;
-			Categories = categories;
-			Description = description;
-			Status = status;
-			Reviews = new List<Review>();
+			_movieDto = new MovieDto();
+			_movieDto.Title = title;
+			_movieDto.Categories = categories;
+			_movieDto.Description = description;
+			_movieDto.Status = status;
+			_movieDto.Username = Username;
 		}
+
+		public Movie(MovieDto dto)
+        {
+			_movieDto = dto;
+        }
+
+		public static List<CategoryDto> Categories
+        {
+			get
+            {
+				IMovieDao movieDao = DaoFactory.Factory.MovieDao;
+				return movieDao.GetAllCategories();
+            }
+        }
+
+		public static List<MovieStatusDto> Statuses
+        {
+            get
+            {
+				IMovieDao movieDao = DaoFactory.Factory.MovieDao;
+				return movieDao.GetAllStatuses();
+            }
+        }
 	}
 }

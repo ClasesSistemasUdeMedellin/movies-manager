@@ -1,4 +1,5 @@
 using MoviesManager.Forms;
+using MoviesManager.Model;
 
 namespace MoviesManager
 {
@@ -13,7 +14,7 @@ namespace MoviesManager
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainWindowForm());
+            Application.Run(new MainWindowForm(new MovieManager()));
         }
     }
 }

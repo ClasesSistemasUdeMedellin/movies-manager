@@ -118,7 +118,7 @@
     <value>1</value>
   </data>
   <data name="button1Send.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 30</value>
+    <value>320, 34</value>
   </data>
   <data name="button1Send.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 29</value>

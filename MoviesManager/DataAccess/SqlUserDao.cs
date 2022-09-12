@@ -55,7 +55,7 @@ namespace MoviesManager.DataAccess
                 _connection.Open();
                 using (SqlCommand cmd = _connection.CreateCommand())
                 {
-                    string values = "@NAME, @EMAIL, @USERNAME', @PASSWORD, @USERGUID";
+                    string values = "@NAME, @EMAIL, @USERNAME, @PASSWORD, @USERGUID";
                     cmd.CommandText = $"INSERT INTO [Users](Name, Email, Username, Password, UserGuid) VALUES ({values})";
                     cmd.Parameters.AddWithValue("@NAME", user.Name);
                     cmd.Parameters.AddWithValue("@EMAIL", user.Email);

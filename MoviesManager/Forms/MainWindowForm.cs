@@ -1,4 +1,5 @@
-﻿using MoviesManager.Model;
+﻿using MoviesManager.Forms.Controls;
+using MoviesManager.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,26 @@ namespace MoviesManager.Forms
         {
             MovieManager = movieManager;
             InitializeComponent();
+            InitializeGrid();
+        }
+
+        private void InitializeGrid()
+        {
+            tableLayoutPanelGrid.RowStyles.Clear();
+            tableLayoutPanelGrid.ColumnStyles.Clear();
+            tableLayoutPanelGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3f));
+            tableLayoutPanelGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3f));
+            tableLayoutPanelGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3f));
+            for (int r = 0; r < 6; r++)
+            {
+                tableLayoutPanelGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 150));
+                for (int c = 0; c < 3; c++)
+                {
+                    var item = new MovieGridItem();
+                    item.Anchor = AnchorStyles.None;
+                    tableLayoutPanelGrid.Controls.Add(item, c, r);
+                }
+            }
         }
 
         private void MainWindowForm_Load(object sender, EventArgs e)
